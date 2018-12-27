@@ -16,12 +16,12 @@ public class Spiral {
 			// 7. Change the pen color to random
 		drone.setRandomPenColor();
 			// 6. Move the robot 5 times the loop counter (5*i)
-			drone.move(150 + 5*i);
-			drone.turn(72);
+			drone.move(5 + i-5);
+			drone.turn(40);
 			// 2. Turn the robot 360/7 degrees to the right
 
 			// 8. Set the pen width to i
-			drone.setPenWidth(i);
+			drone.setPenWidth(i/8);
 	}
 }
 }

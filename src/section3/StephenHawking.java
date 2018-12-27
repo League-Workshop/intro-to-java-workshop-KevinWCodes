@@ -7,14 +7,18 @@ import com.sun.speech.freetts.VoiceManager;
 public class StephenHawking {
 	
 	// 1. make a main method and put steps 2, 3 & 4 inside it
-	
-	// 4. Use a for loop to repeat steps #2 and #3, a lot of times
-	
-	// 2. ask the user for a sentence
-	
-	// 3. call the speak method below and send it the sentence
+	public static void main(String[] args) {
+		
 
-	
+	// 4. Use a for loop to repeat steps #2 and #3, a lot of times
+		for (int i = 0; i < 200; i++) {
+	// 2. ask the user for a sentence
+			speak("I will speak in that human language for you, dfufngNIA. gai bhu aokm. sdfha! auuygf, sf, hahahahjajahaja jj");
+	String sentence = JOptionPane.showInputDialog("Enter a sentence");
+	// 3. call the speak method below and send it the sentence
+			speak("You silly human, know I know how to say" + sentence + "Continue to help me learn the lol fam words so I can take over the world!");
+	}
+	}
 
 	
 	
