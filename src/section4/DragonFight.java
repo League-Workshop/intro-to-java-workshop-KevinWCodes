@@ -7,6 +7,26 @@ import javax.swing.ImageIcon;
 public class DragonFight {
 	// 1. Create a main method and put all of the code below inside of it
 	public static void main(String[] args) {
+		String choice = JOptionPane.showInputDialog("Do you enter the maze?");
+
+		String room1 = JOptionPane.showInputDialog("In the dungeon there is a pot, a lever, and a door. You can throw the pot at the lever, smash the pot, pull the lever, or open the door.");
+				if (room1.equalsIgnoreCase("smash the pot")) {
+					JOptionPane.showMessageDialog(null, "you find a coin");
+					String loldeath = JOptionPane.showInputDialog("Do you flip the lever or open the door?");
+					JOptionPane.showMessageDialog(null, "When you tried to " + loldeath + " you activated a trap. You died.");
+					System.exit(0);
+				}
+				if (room1.equalsIgnoreCase("throw the pot at the lever")) {
+					JOptionPane.showMessageDialog(null, "When the lever moves, the door opens, but a trap is activated. The trap does not hurt you. You move to the next room.");
+				} else {
+					JOptionPane.showMessageDialog(null, "When you try to " + room1 + ", the door opens, but a trap activates. The trap hurts you. You died.");
+				System.exit(0);
+				}
+			
+				JOptionPane.showMessageDialog(null, "You can find hidden things to help you escape. Type 'hint' for a clue or just type 'examine'.");
+		String room2 = JOptionPane.showInputDialog("There is a poster, ");
+		
+		
 		Random crazy = new Random();
 		ImageIcon dragon = new ImageIcon("src/section4/dragonPicture.jpg");		
 		
@@ -14,12 +34,11 @@ public class DragonFight {
 		// 2. Create a variable called "playerHealth" to store your health (set it equal to 100)
 	int playerHealth = 100;
 		// 3. Create a variable called "dragonHealth" to store the dragon's health (set it equal to 100)
-		int dragonHealth = 80;
+		int dragonHealth = 90;
 		// 4. Create a variable to hold the damage the player's attack does each round
-		
-		int playerDamage = (random(15)); 
+
 		// 5. Create a variable to hold the damage the dragon's attack does each round
-		dragonHealth = dragonHealth - playerDamage;
+
 		// 6.  Delete the slashes at the beginning of the next line.  
 		while(playerHealth>0 && dragonHealth>0) {    //this line of code keeps the battle going until someone's health reaches 0 
 		
@@ -34,11 +53,17 @@ public class DragonFight {
 		if (attack.equalsIgnoreCase("yell")){
 			dragonHealth = dragonHealth - crazy.nextInt(12);
 		} 
-		
+		if (attack.equalsIgnoreCase("gun")){
+			dragonHealth = dragonHealth - crazy.nextInt(100);
+		}
+		if (attack.equalsIgnoreCase("hint")){
+			dragonHealth = dragonHealth - crazy.nextInt(10);
+			JOptionPane.showMessageDialog(null, "You came here armed. Use your _____.");
+		}
 			//-- Find a random number between 0 and 10 and store it in dragonDamage
-			if (dragonHealth < 0) {
+			if (dragonHealth < 1) {
 				JOptionPane.showMessageDialog(null,"You got the pile of gold and the dragon was slain, Game Over.");
-			}
+			} else {
 			//-- Subtract that number from the dragon's health variable 
 			
 		// 10. If they typed in "kick":
@@ -48,7 +73,7 @@ public class DragonFight {
 			//-- Subtract that number from the dragon's health variable
 			int dragonDamage = crazy.nextInt(36);
 			playerHealth = playerHealth - dragonDamage;
-		
+			}
 		// 11.  Find a random number between 0 and 35 and store it in playerDamage
 		
 		// 12. Subtract this number from the player's health
@@ -71,16 +96,10 @@ public class DragonFight {
 			//-- Pop up a message that tells the their current health and the dragon's currently health (Bonus: Also display the amount of health that was lost for each player this round)
 		JOptionPane.showMessageDialog(null,"Your current health is " + playerHealth + ". The Dragon's current health is " + dragonHealth + ". Good luck!");
 		}
-	}
+		
+	
+	
 
-
-
-
-
-
-
-	private static int random(int i) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 }
+
